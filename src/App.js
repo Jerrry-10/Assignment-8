@@ -9,6 +9,8 @@ import Third from './components/Thirdpage';
 import axios from 'axios';
 import LogIn from "./components/Login";
 import { useState,useEffect } from 'react';
+import UserProfile from './components/UserProfile';
+import Balance from './components/Balance';
 function App() {
   let [accdebits, setaccDebits] = useState(0);
   let [acccredits, setaccCredits] = useState(0);
@@ -43,7 +45,7 @@ function App() {
     //  console.log(e.amount);
     // console.log(balance);
   });
-balance = accdebits - acccredits
+balance = acccredits - accdebits
 const mockLogIn = (logInInfo) => {
   const newUser = {...currentUser}
   newUser.userName = logInInfo.userName
@@ -53,13 +55,15 @@ const mockLogIn = (logInInfo) => {
   return (
     <BrowserRouter>
      <Navbar/>
+    
       <div>
+        <Balance bal = {balance}/>
         <Routes>
           <Route path="/login" element={<LogIn user={currentUser} mockLogIn={mockLogIn}/>}/>
           <Route exact path = "/" element = { <Home bal = {balance}/> }  />
           <Route exact path = "/Second" element = { <Secondpage bal = {accdebits}/> }  />
           <Route exact path = "/Third" element = { <Third bal = {acccredits}/> }  />
-
+          <Route exact path = "/userProfile" element = { <UserProfile userName={currentUser.userName} memberSince={currentUser.memberSince}/> }  />
         </Routes>
       </div>
 

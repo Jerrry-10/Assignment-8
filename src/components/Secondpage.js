@@ -1,6 +1,7 @@
 import axios from 'axios'
 import React from 'react'
 import { useState, useEffect } from 'react'
+import Balance from './Balance'
 export default function Secondpage(props) {
     const [Debit, setDebit] = useState([])
     async function GetDebits(){
@@ -17,6 +18,7 @@ export default function Secondpage(props) {
         <div>
             <h1> Look at your debits</h1>
             <h2> You have {props.bal} debt</h2>
+            <h2> total balance is <Balance/></h2>
             {Debit.map( e =>{
                 return(
                     <div className='inline'>
@@ -28,6 +30,7 @@ export default function Secondpage(props) {
                     </div>
                 )
             })}
+            {/* <button onClick={}> Add debt</button> */}
         </div>
     )
 }

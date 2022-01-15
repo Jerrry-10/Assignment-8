@@ -16,7 +16,7 @@ export default function Third(props) {
     return (
         <div>
             <h1> Look at your credits</h1>
-            <h2> You have {props.bal +500000} credit</h2>
+            <h2> You have {props.bal } credit</h2>
             {Debit.map( (e,pos) =>{
                 return(
                     <div className='inline'>
