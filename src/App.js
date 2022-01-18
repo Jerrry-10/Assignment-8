@@ -3,9 +3,9 @@ import './App.css';
 import React from 'react';
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import Home from './components/Home';
-import Secondpage from './components/Secondpage';
+import Secondpage from './components/debit';
 import Navbar from './components/Navbar';
-import Third from './components/Thirdpage';
+import Third from './components/credit';
 import axios from 'axios';
 import LogIn from "./components/Login";
 import { useState,useEffect } from 'react';
@@ -57,12 +57,12 @@ const mockLogIn = (logInInfo) => {
      <Navbar/>
     
       <div>
-        <Balance bal = {balance}/>
+        {/* <Balance bal = {balance}/> */}
         <Routes>
           <Route path="/login" element={<LogIn user={currentUser} mockLogIn={mockLogIn}/>}/>
           <Route exact path = "/" element = { <Home bal = {balance}/> }  />
-          <Route exact path = "/Second" element = { <Secondpage bal = {accdebits}/> }  />
-          <Route exact path = "/Third" element = { <Third bal = {acccredits}/> }  />
+          <Route exact path = "/debit" element = { <Secondpage bal = {accdebits}/> }  />
+          <Route exact path = "/credit" element = { <Third bal = {acccredits}/> }  />
           <Route exact path = "/userProfile" element = { <UserProfile userName={currentUser.userName} memberSince={currentUser.memberSince}/> }  />
         </Routes>
       </div>
